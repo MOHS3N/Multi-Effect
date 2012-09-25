@@ -7,9 +7,9 @@ $(function(){
 	function goslid(){
 		
 		if($('div.scroll').css('left')=='-6860px'){
-			$('div.scroll').animate({'left':'0px'},500)
+			$('div.scroll').stop().animate({'left':'0px'},500)
 		}else{
-			$('div.scroll').animate({'left':'-=980px'},500);	
+			$('div.scroll').stop().animate({'left':'-=980px'},500);	
 		}
 	}
 	
@@ -36,7 +36,7 @@ $(function(){
 		
 	$('div.controlbox > div').click(function(){
 		clearInterval(timer);
-		$('div.scroll').animate({'opacity':'0'},400,'linear',function(){
+		$('div.scroll').stop().animate({'opacity':'0'},400,'linear',function(){
 			$('div.scroll').css({'left':-980*inx})
 			});
 		var inx = $('div.controlbox > div').index(this);
