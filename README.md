@@ -10,7 +10,7 @@ Some nice and simple JavaScript Gallery
 * [HTML5](http://www.w3c.org/html5)
 * [CSS3](http://www.w3c.org/css3)
 * [JavaScript](http://www.mdn.org)
-* [zepto.js](http://zeptojs.com/)
+* [jquery.js](http://jquery.com/)
 
 
 ###The Team
