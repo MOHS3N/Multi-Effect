@@ -26,12 +26,11 @@ div.fade img{
 }
 div.scroll{
 	width:7840px;
-	height:400px;
-	background:#090;
-	opacity:0.4;	
+	height:400px;	
 	position:absolute;
 	top:0px;
 	left:0px;
+	/*opacity:0;*/
 }
 div.scroll img{
 	float:left;	
@@ -52,6 +51,6 @@ div.controlbox > div{
 	border:2px solid #000;
 	font-size:30px;
 	color:#FFF;
-	
+	margin-top:50px;
 		
 }
