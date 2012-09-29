@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* CSS Document */
+ CSS Document 
 *{
 	margin:0px;
 	padding:0px;
@@ -17,7 +17,8 @@ div.fade{
 	width:980px;
 	height:400px;
 	overflow:hidden;
-	position:relative;	
+	position:relative;
+	/*display:none;*/	
 }
 div.fade img{
 	position:absolute;
@@ -25,21 +26,23 @@ div.fade img{
 	left:0px;	
 }
 div.scroll{
-	width:7840px;
+	width:980px;
 	height:400px;	
 	position:absolute;
 	top:0px;
 	left:0px;
-	/*opacity:0;*/
+	
 }
 div.scroll img{
-	float:left;	
+	position:absolute;
+	display:block;	
 }
 div.controlbox{
 	width:100%;
 	position:absolute;
 	bottom:0px;
 	height:80px;
+	
 	
 }
 div.controlbox > div{
@@ -53,4 +56,30 @@ div.controlbox > div{
 	color:#FFF;
 	margin-top:50px;
 		
+}
+
+div.b-btn{
+	width:48px;
+	height:48px;
+	background-image:url('../demo/images/back-button6.png');
+	background-repeat:no-repeat;
+	top:160px;
+	left:30px;
+	position:absolute;
+	z-index:10;
+}
+div.f-btn{
+	width:48px;
+	height:48px;
+	background-image:url('../demo/images/back-button6.png');
+	background-repeat:no-repeat;
+	top:160px;
+	right:30px;
+	position:absolute;
+	z-index:10;
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	transform:rotate(180deg);
 }
