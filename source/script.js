@@ -1,7 +1,7 @@
 // Nixy-JavaScript Document
 $(function(){
 	
-	var timer =self.setInterval(FlashForwared,3000);	
+			setInterval(FlashForwared,3000);	
 	
 	/* Create css obj{} for saveing css Property */
 	css = {
