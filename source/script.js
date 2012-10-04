@@ -78,44 +78,26 @@ $(function(){
 			
 			},function(){
 				
-				$('div.controlbox > div').eq(0).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
+				/*This Is Masoud Offer  :) --->  https://github.com/seeking */
 				
-				$('div.controlbox > div').eq(1).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
+			var i = 0,
+			
+			dur = duration;
+			
+		(pullDown = function () {
+			
+			delay = 100;
+			
+			$('div.controlbox > div').eq(i++).stop().animate({
 				
-				$('div.controlbox > div').eq(2).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
+				'margin-top': '50px'
 				
-				$('div.controlbox > div').eq(3).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
-				
-				$('div.controlbox > div').eq(4).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
-				
-				$('div.controlbox > div').eq(5).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
-				
-				$('div.controlbox > div').eq(6).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc',function(){
-				
-				$('div.controlbox > div').eq(7).stop().animate({
-				'margin-top':'50px'
-			},duration-300,'easeInOutCirc')
-				})
-				})
-				})
-				})
-				})
-				})
-				})
+			}, dur - 300, 'easeInOutCirc');
+			
+			(i - 1) == imgx ? clearTimeout(Int) : (Int = setTimeout(pullDown, delay));
+			
+		})();
+		
 			})
 			
 			$('div.controlbox > div',this).click(function(){
