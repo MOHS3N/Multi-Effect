@@ -78,7 +78,7 @@ $(function(){
 			
 			},function(){
 				
-				/*This Is Masoud Offer  :) --->  https://github.com/seeking */
+				/*It is recommended Masoud :) --->  https://github.com/seeking */
 				
 			var i = 0,
 			
