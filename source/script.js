@@ -2,6 +2,8 @@
 $(function(){
 	
 		var timer;
+		var FristScrollStr;
+		var FristFadeStr;
 			
 			(startslider = function(){
 			
@@ -15,7 +17,8 @@ $(function(){
 	/* Create css obj{} for saveing css Property */
 	css = {
 			left:[],
-			top:[]		
+			top:[],
+			name:[]		
 		}
 		
 		var duration = 700
@@ -33,7 +36,10 @@ $(function(){
 			css.left.push($('div.scroll > img').eq(i).css('left'));
 			
 			/* Add Value style.top  To top[] */
-			css.top.push($('div.scroll > img').eq(i).css('top'))
+			css.top.push($('div.scroll > img').eq(i).css('top'));
+			
+			
+			css.name.push($('div.scroll > img').eq(i).attr('src'))
 		}
 		
 		
@@ -45,15 +51,24 @@ $(function(){
 			/*cut frist Value from top[] And add it to the end top[]*/
 			css.top.push(css.top.shift());
 			
+			/*cut frist Value from name[] And add it to the end name[]*/
+			css.name.push(css.name.shift());
+			
 			for(var j = 0;j<=imgx;j++){
 				
 				/* Add animation to change on css{}  */
 				$('div.scroll > img').eq(j).stop().animate({
 					
-				'left': css.left[j],
-				'top': css.top[j]
+					'left': css.left[j],
+					
+					'top': css.top[j]
 				
-				},duration,'easeInOutCirc');
+				},duration,'easeInOutCirc',function(){
+					
+					FristScrollStr = css.name[1].toString();
+					
+					
+					});
 			}
 		}
 		
@@ -66,16 +81,24 @@ $(function(){
 			/*cut Last Value from top[] And add it to the First on the top[]*/
 			css.top.unshift(css.top.pop());
 			
+			/*cut Last Value from Name[] And add it to the First on the Name[]*/
+			css.name.unshift(css.name.pop());
+			
 			
 			for(var j = 0;j<=imgx;j++){
 				
 				/* Add animation to change on css{}  */
 				$('div.scroll > img').eq(j).animate({
 					
-				'left': css.left[j],
-				'top': css.top[j]
+					'left': css.left[j],
+					
+					'top': css.top[j]
 				
-				},duration,'easeInOutCirc');
+				},duration,'easeInOutCirc',function(){
+					
+					FristScrollStr = css.name[1].toString();
+					
+				});
 			}
 		}
 			
@@ -113,7 +136,13 @@ $(function(){
 			})
 			
 			$('div.controlbox > div',this).click(function(){
+				
 				var thisimx = $(this).index();
+				
+				
+				
+				clearInterval(timer);
+				timer = 0;
 				
 				
 				$('div.scroll').stop().animate({
@@ -137,13 +166,14 @@ $(function(){
 			})
 			
 			$('div.slideshow').hover(function(){},function(){
-				
+			
 				$('div.scroll').delay(1000).animate({opacity:1},500,'linear',function(){
 					
 					if(timer == 0){
-						setTimeout(startslider,3000);
+						setTimeout(startslider,1000);
 						timer = 1;	
 					}
+				
 					
 				});
 				})
@@ -156,15 +186,14 @@ $(function(){
 		FlashBack();
 		clearInterval(timer);
 		timer = 0;
-	})
+	});
 	
 	$('div.f-btn').click(function(){
 		
 			FlashForwared();
 			clearInterval(timer);
-			timer = 0;
-			
-			
-	})
+			timer = 0;	
+	});
+	
 	
 })
