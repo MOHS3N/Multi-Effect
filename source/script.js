@@ -170,7 +170,7 @@ $(function(){
 				$('div.scroll').delay(1000).animate({opacity:1},500,'linear',function(){
 					
 					if(timer == 0){
-						setTimeout(startslider,1000);
+						setTimeout(startslider,500);
 						timer = 1;	
 					}
 				
