@@ -1,7 +1,16 @@
 // Nixy-JavaScript Document
 $(function(){
 	
-			setInterval(FlashForwared,3000);	
+		var timer;
+			
+			function startslider(){
+			
+				timer = setInterval(FlashForwared,3000);
+				
+			};
+			
+			startslider();
+			
 	
 	/* Create css obj{} for saveing css Property */
 	css = {
@@ -61,7 +70,7 @@ $(function(){
 			for(var j = 0;j<=imgx;j++){
 				
 				/* Add animation to change on css{}  */
-				$('div.scroll > img').eq(j).stop().animate({
+				$('div.scroll > img').eq(j).animate({
 					
 				'left': css.left[j],
 				'top': css.top[j]
@@ -127,7 +136,8 @@ $(function(){
 			$('div.slideshow').hover(function(){},function(){
 				$('div.scroll').delay(1000).animate({opacity:1},500,'linear',function(){
 					
-							
+					setTimeout(startslider,2000)
+					
 				});
 				})
 		
@@ -135,11 +145,15 @@ $(function(){
 
 
 	$('div.b-btn').click(function(){
-		FlashBack();	
+			
+		FlashBack();
+		clearInterval(timer);		
 	})
 	
 	$('div.f-btn').click(function(){
-		FlashForwared();	
+		
+			FlashForwared();
+			clearInterval(timer);
 	})
 	
 })
