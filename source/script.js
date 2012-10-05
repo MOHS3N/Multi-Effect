@@ -3,13 +3,13 @@ $(function(){
 	
 		var timer;
 			
-			function startslider(){
+			(startslider = function(){
 			
 				timer = setInterval(FlashForwared,3000);
 				
-			};
+			})();
 			
-			startslider();
+			
 			
 	
 	/* Create css obj{} for saveing css Property */
