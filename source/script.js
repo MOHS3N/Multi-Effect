@@ -81,8 +81,11 @@ $(function(){
 			
 			
 		$('div.controlbox').hover(function(){
+			
 			$('div.controlbox > div').stop().animate({
+				
 				'margin-top':'0px'
+				
 			},duration-300)
 			
 			},function(){
@@ -134,9 +137,13 @@ $(function(){
 			})
 			
 			$('div.slideshow').hover(function(){},function(){
+				
 				$('div.scroll').delay(1000).animate({opacity:1},500,'linear',function(){
 					
-					setTimeout(startslider,2000)
+					if(timer == 0){
+						setTimeout(startslider,3000);
+						timer = 1;	
+					}
 					
 				});
 				})
@@ -147,13 +154,17 @@ $(function(){
 	$('div.b-btn').click(function(){
 			
 		FlashBack();
-		clearInterval(timer);		
+		clearInterval(timer);
+		timer = 0;
 	})
 	
 	$('div.f-btn').click(function(){
 		
 			FlashForwared();
 			clearInterval(timer);
+			timer = 0;
+			
+			
 	})
 	
 })
