@@ -2,8 +2,7 @@
 $(function(){
 	
 		var timer;
-		var FristScrollStr;
-		var FristFadeStr;
+		var NewSrc;
 			
 			(startslider = function(){
 			
@@ -18,7 +17,9 @@ $(function(){
 	css = {
 			left:[],
 			top:[],
-			name:[]		
+			OldSrc:[]
+		
+				
 		}
 		
 		var duration = 700
@@ -39,7 +40,7 @@ $(function(){
 			css.top.push($('div.scroll > img').eq(i).css('top'));
 			
 			
-			css.name.push($('div.scroll > img').eq(i).attr('src'))
+			css.OldSrc.push($('div.scroll > img').eq(i).attr('src'))
 		}
 		
 		
@@ -52,7 +53,7 @@ $(function(){
 			css.top.push(css.top.shift());
 			
 			/*cut frist Value from name[] And add it to the end name[]*/
-			css.name.push(css.name.shift());
+			css.OldSrc.push(css.OldSrc.shift());
 			
 			for(var j = 0;j<=imgx;j++){
 				
@@ -63,12 +64,7 @@ $(function(){
 					
 					'top': css.top[j]
 				
-				},duration,'easeInOutCirc',function(){
-					
-					FristScrollStr = css.name[1].toString();
-					
-					
-					});
+				},duration,'easeInOutCirc');
 			}
 		}
 		
@@ -82,7 +78,7 @@ $(function(){
 			css.top.unshift(css.top.pop());
 			
 			/*cut Last Value from Name[] And add it to the First on the Name[]*/
-			css.name.unshift(css.name.pop());
+			css.OldSrc.unshift(css.OldSrc.pop());
 			
 			
 			for(var j = 0;j<=imgx;j++){
@@ -94,11 +90,7 @@ $(function(){
 					
 					'top': css.top[j]
 				
-				},duration,'easeInOutCirc',function(){
-					
-					FristScrollStr = css.name[1].toString();
-					
-				});
+				},duration,'easeInOutCirc');
 			}
 		}
 			
@@ -139,10 +131,11 @@ $(function(){
 				
 				var thisimx = $(this).index();
 				
-				
-				
+				NewSrc = $('div.controlbox > div > img ').eq(thisimx).attr('src');	
+					
+					 
 				clearInterval(timer);
-				timer = 0;
+				timer = false;
 				
 				
 				$('div.scroll').stop().animate({
@@ -166,12 +159,16 @@ $(function(){
 			})
 			
 			$('div.slideshow').hover(function(){},function(){
+				
+				$('div.scroll >img').eq(1).attr('src',NewSrc)
+			
 			
 				$('div.scroll').delay(1000).animate({opacity:1},500,'linear',function(){
 					
-					if(timer == 0){
-						setTimeout(startslider,500);
-						timer = 1;	
+					if(timer == false){
+						
+						setTimeout(startslider,10);
+						timer = true;	
 					}
 				
 					
@@ -185,14 +182,14 @@ $(function(){
 			
 		FlashBack();
 		clearInterval(timer);
-		timer = 0;
+		timer = false;
 	});
 	
 	$('div.f-btn').click(function(){
 		
 			FlashForwared();
 			clearInterval(timer);
-			timer = 0;	
+			timer = false;	
 	});
 	
 	
